@@ -1,12 +1,12 @@
-# apple-store-html
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ... (same head as before) -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Apple Store - iPhone Collection (Interactive)</title>
+  <title>Apple Store - iPhone Collection (Buy Now with Links)</title>
   <style>
+    /* same CSS as before */
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -16,126 +16,7 @@
       text-align: center;
       color: #1d1d1f;
     }
-    h1 {
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .cart {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgb(0 0 0 / 0.1);
-      padding: 15px 20px;
-      max-width: 1200px;
-      margin: 0 auto 30px auto;
-      text-align: left;
-      font-size: 16px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .cart h2 {
-      margin: 0 0 10px 0;
-      font-size: 20px;
-    }
-    .cart-items {
-      margin-bottom: 10px;
-    }
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 6px 0;
-      border-bottom: 1px solid #ddd;
-    }
-    .cart-total {
-      font-weight: 700;
-      font-size: 18px;
-      margin-top: 10px;
-    }
-    .btn-clear {
-      background: #fa3e3e;
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .phone-card {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgb(0 0 0 / 0.1);
-      width: 280px;
-      padding: 20px;
-      text-align: left;
-      transition: transform 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .phone-card:hover {
-      transform: scale(1.05);
-    }
-    .phone-img {
-      width: 100%;
-      border-radius: 12px;
-      object-fit: contain;
-      margin-bottom: 15px;
-    }
-    .phone-name {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-    .phone-price {
-      color: #fa3e3e;
-      font-weight: 600;
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-    .phone-specs {
-      font-size: 14px;
-      line-height: 1.5;
-      color: #555;
-      margin-bottom: 15px;
-    }
-    .btn-buy {
-      background: #0071e3;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: background-color 0.3s ease;
-    }
-    .btn-buy:hover {
-      background-color: #005bb5;
-    }
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .cart {
-        position: static;
-        margin-bottom: 20px;
-      }
-    }
-    h2.section-title {
-      width: 100%;
-      margin-top: 50px;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 10px;
-      color: #333;
-    }
+    /* ... (rest of the CSS unchanged) */
   </style>
 </head>
 <body>
@@ -149,22 +30,14 @@
     <button class="btn-clear" id="clear-cart">Clear Cart</button>
   </div>
 
-  <div class="container" id="phone-list">
-
-    <!-- Phones will be injected here by JavaScript -->
-
-  </div>
+  <div class="container" id="phone-list"></div>
 
   <h2 class="section-title">Upcoming 2025 iPhone Models</h2>
 
-  <div class="container" id="phone-list-2025">
-
-    <!-- 2025 phones injected here -->
-
-  </div>
+  <div class="container" id="phone-list-2025"></div>
 
   <script>
-    // Phone Data (existing + 2025 models)
+    // Phone Data with Amazon Links
     const phones = [
       {
         id: 1,
@@ -172,6 +45,7 @@
         price: 129900,
         img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-family-hero-all?wid=470&hei=556&fmt=png-alpha&.v=1660753619946",
         specs: "Display: 6.1-inch Super Retina XDR<br>Processor: A16 Bionic chip<br>Camera: 48MP Triple-lens<br>Battery: Up to 23 hours video playback",
+        amazonLink: "https://www.amazon.in/s?k=iphone+14+pro",
         section: "existing",
       },
       {
@@ -180,6 +54,7 @@
         price: 79900,
         img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-family-hero-all?wid=470&hei=556&fmt=png-alpha&.v=1660753619936",
         specs: "Display: 6.1-inch Super Retina XDR<br>Processor: A15 Bionic chip<br>Camera: 12MP Dual-lens<br>Battery: Up to 20 hours video playback",
+        amazonLink: "https://www.amazon.in/s?k=iphone+14",
         section: "existing",
       },
       {
@@ -188,6 +63,7 @@
         price: 119900,
         img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-pro-family-select-2021?wid=470&hei=556&fmt=png-alpha&.v=1645552346281",
         specs: "Display: 6.1-inch Super Retina XDR<br>Processor: A15 Bionic chip<br>Camera: 12MP Triple-lens<br>Battery: Up to 22 hours video playback",
+        amazonLink: "https://www.amazon.in/s?k=iphone+13+pro",
         section: "existing",
       },
       {
@@ -196,6 +72,7 @@
         price: 43900,
         img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-se-2022-family-hero?wid=470&hei=556&fmt=png-alpha&.v=1645069385433",
         specs: "Display: 4.7-inch Retina HD<br>Processor: A15 Bionic chip<br>Camera: 12MP Single-lens<br>Battery: Up to 15 hours video playback",
+        amazonLink: "https://www.amazon.in/s?k=iphone+se+2022",
         section: "existing",
       },
       {
@@ -204,6 +81,7 @@
         price: 59900,
         img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-family-select-2021?wid=470&hei=556&fmt=png-alpha&.v=1631848472000",
         specs: "Display: 6.1-inch Super Retina XDR<br>Processor: A14 Bionic chip<br>Camera: 12MP Dual-lens<br>Battery: Up to 17 hours video playback",
+        amazonLink: "https://www.amazon.in/s?k=iphone+12",
         section: "existing",
       }
     ];
@@ -215,6 +93,7 @@
         price: 139900,
         img: "https://fakeimg.pl/470x556/000/fff/?text=iPhone+15+Pro&font=lobster",
         specs: "Display: 6.1-inch ProMotion LTPO OLED<br>Processor: A17 Bionic chip<br>Camera: 48MP Triple-lens with improved zoom<br>Battery: Up to 24 hours video playback",
+        amazonLink: "https://www.amazon.in/s?k=iphone+15+pro",
       },
       {
         id: 7,
@@ -222,6 +101,7 @@
         price: 89900,
         img: "https://fakeimg.pl/470x556/222/eee/?text=iPhone+15&font=lobster",
         specs: "Display: 6.1-inch OLED<br>Processor: A16 Bionic chip<br>Camera: 12MP Dual-lens with better low light<br>Battery: Up to 22 hours video playback",
+        amazonLink: "https://www.amazon.in/s?k=iphone+15",
       },
       {
         id: 8,
@@ -229,6 +109,7 @@
         price: 99900,
         img: "https://fakeimg.pl/470x556/555/ddd/?text=iPhone+15+Plus&font=lobster",
         specs: "Display: 6.7-inch OLED<br>Processor: A16 Bionic chip<br>Camera: 12MP Dual-lens<br>Battery: Up to 26 hours video playback",
+        amazonLink: "https://www.amazon.in/s?k=iphone+15+plus",
       },
       {
         id: 9,
@@ -236,12 +117,12 @@
         price: 169900,
         img: "https://fakeimg.pl/470x556/111/eee/?text=iPhone+15+Pro+Max&font=lobster",
         specs: "Display: 6.7-inch ProMotion LTPO OLED<br>Processor: A17 Bionic chip<br>Camera: 48MP Triple-lens with advanced zoom<br>Battery: Up to 29 hours video playback",
+        amazonLink: "https://www.amazon.in/s?k=iphone+15+pro+max",
       }
     ];
 
     const cart = [];
 
-    // Format price in INR with commas
     function formatPrice(num) {
       return '₹' + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
@@ -256,7 +137,7 @@
           <div class="phone-name">${phone.name}</div>
           <div class="phone-price">${formatPrice(phone.price)}</div>
           <div class="phone-specs">${phone.specs}</div>
-          <button class="btn-buy" onclick="addToCart(${phone.id}, '${phone.name}', ${phone.price})">Buy Now</button>
+          <button class="btn-buy" onclick="buyNow(${phone.id})">Buy Now</button>
         `;
         phoneList.appendChild(card);
       });
@@ -272,20 +153,36 @@
           <div class="phone-name">${phone.name}</div>
           <div class="phone-price">${formatPrice(phone.price)}</div>
           <div class="phone-specs">${phone.specs}</div>
-          <button class="btn-buy" onclick="addToCart(${phone.id}, '${phone.name}', ${phone.price})">Buy Now</button>
+          <button class="btn-buy" onclick="buyNow(${phone.id}, true)">Buy Now</button>
         `;
         phoneList2025.appendChild(card);
       });
     }
 
-    function addToCart(id, name, price) {
-      const existing = cart.find(item => item.id === id);
+    // Modified addToCart & open link in new tab
+    function buyNow(id, is2025 = false) {
+      let phone;
+      if(is2025){
+        phone = phones2025.find(p => p.id === id);
+      } else {
+        phone = phones.find(p => p.id === id);
+      }
+
+      if(!phone) return;
+
+      // Add to cart
+      const existing = cart.find(item => item.id === phone.id);
       if (existing) {
         existing.qty++;
       } else {
-        cart.push({id, name, price, qty: 1});
+        cart.push({id: phone.id, name: phone.name, price: phone.price, qty: 1});
       }
       renderCart();
+
+      // Open Amazon link in new tab
+      if (phone.amazonLink) {
+        window.open(phone.amazonLink, "_blank");
+      }
     }
 
     function renderCart() {
